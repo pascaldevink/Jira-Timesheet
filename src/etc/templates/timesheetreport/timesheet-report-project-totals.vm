@@ -1,0 +1,32 @@
+#if ($projectTimeSpents)
+	#foreach ($project in $projectTimeSpents.keys())
+		<tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+			<td align="center"><b>
+					<a href="$req.contextPath/browse/$project.getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($project.getName())</a>
+			</b></td>
+			#if ($groupByField && $showUsers)
+				<td colspan="6">&nbsp;</td>
+			#elseif ($groupByField || $showUsers)
+				<td colspan="5">&nbsp;</td>
+			#else
+				<td colspan="4">&nbsp;</td>
+			#end
+			#set ($totalWorked = 0)
+			#foreach ($weekDay in $weekDays)
+				#set ($projectWorkLog = $projectTimeSpents.get($project))
+				#if ($projectWorkLog.get($weekDay.getWeekDayDate()))	             	
+					#set ($timeSpent = $projectWorkLog.get($weekDay.getWeekDayDate()).intValue())
+				#else
+					#set ($timeSpent = 0)
+				#end
+				#set ($totalWorked = $totalWorked + $timeSpent)
+				<td align="center" class="$weekDay.getWeekDayCSS()">
+					#if($timeSpent != 0)
+						<b>$textUtil.getPrettyHours($timeSpent)</b>
+					#end
+				</td>	            	
+			#end
+			<td align="center"><b>$textUtil.getPrettyHours($totalWorked)</b></td>
+		</tr>
+	#end
+#end

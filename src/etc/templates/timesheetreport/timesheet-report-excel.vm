@@ -1,0 +1,53 @@
+<table class=tableBorder border="1" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="1" cellpadding="3" cellspacing="1" width="100%">
+    <tr class=rowHeader>
+        <td class="colHeaderLink" width="1%"><b>$i18n.getText("report.timesheet.issue.reported")</b></td>
+        <td class="colHeaderLink" width="1%"><b>$i18n.getText("report.timesheet.issue.type")</b></td>
+        <td class="colHeaderLink" width="1%"><b>$i18n.getText("report.timesheet.issue.key")</b></td>
+        <td class="colHeaderLink" width="50%"><b>$i18n.getText("report.timesheet.issue.title")</b></td>
+        #if ($groupByField)
+            <td class="colHeaderLink" width="50%"><b>$textutils.plainTextToHtml($textUtil.getFieldName($groupByField))</b></td>
+        #end
+        <td align="center" width="1%"><b>$i18n.getText("report.timesheet.worklog.created")</b></td>
+        <td align="center" width="1%"><b>$i18n.getText("report.timesheet.worklog.author")</b></td>
+        <td align="center" width="1%"><b>$i18n.getText("report.timesheet.worklog.numvalue")</b></td>
+        <td align="center" width="50%"><b>$i18n.getText("report.timesheet.worklog.body")</b></td>
+    </tr>
+    #set ($count = 0)
+    #foreach ($issue in $allWorkLogs.keys())
+    	#set ($worklogs = $allWorkLogs.get($issue))
+    	#set ($outerIndex = $velocityCount)
+    	#foreach ($worklog in $worklogs) 
+			<tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+				#set ($relPath = "/browse/$issue.getString('key')")
+		        <td width="1%">&nbsp;</td>
+		                <td align="center" width=1%>$issue.getIssueType().getString("name")</td>
+				<td nowrap width=1%><font size=1><a href="$textUtil.expandUrl($req, $relPath)">$issue.getString("key")</a></font></td>
+				
+				<td width=50%>$textutils.plainTextToHtml($issue.getString('summary'))</td>
+				
+                #if ($groupByField)
+                    <td class="colHeaderLink" width="50%">
+                    #set ($field = $textUtil.getFieldValue($groupByField, $issue, $outlookDate))
+                    #if ($field  == "NoValueForFieldOnIssue")
+                        $i18n.getText("report.timesheet.groupbyfield.novalue")
+                    #elseif ($field == "FieldTypeValueNotApplicableForGrouping")
+                        $i18n.getText("report.timesheet.groupbyfield.couldnotreadvalue")
+                    #else
+                        $textutils.plainTextToHtml($field)
+                    #end
+                    </td>
+                #end
+
+				<td align="center" width=1%>$outlookDate.formatDatePicker($worklog.getStartDate())</td>
+				<td align="center" width=1%>$worklog.getAuthorFullName()</td>
+				<td align="center" width=1%>$textUtil.getHours($worklog.getTimeSpent())</td>
+				<td align="center" width=1%>$textutils.htmlEncode($worklog.getComment())</td>
+			</tr>
+			#set ($count = $count + 1)
+		#end
+		#set ($velocityCount = $outerIndex)
+    #end
+</table>
+</td></tr></table>
+    

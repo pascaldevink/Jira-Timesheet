@@ -1,0 +1,63 @@
+ <tr #if ($velocityCount % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+	<td>
+		<a href="$req.contextPath/browse/$issue.getProjectObject().getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($issue.getProjectObject().getName())</a>
+	</td>
+
+	<td nowrap width=1%>
+		#displayType($issue)
+	</td>
+
+	<td nowrap width=1%><font size=1><a href="$req.contextPath/browse/$issue.key">$issue.key</a></font></td>
+	<td width=100%>
+		#if ($issue.isSubTask())
+			<span class="smallgrey"><a href="$req.contextPath/browse/$issue.getParent().getString('key')" style="text-decoration: none; " title="$issue.getParent().getString('summary')">$issue.getParent().getString('key')</a></span><br>
+			<img src="$req.contextPath/images/icons/link_out_bot.gif" width=16 height=16 border=0 align=absmiddle>
+		#end
+		<a href="$req.contextPath/browse/$issue.getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($issue.getSummary())</a>
+	</td>
+
+	<td nowrap width="1%">
+		#if ($fieldVisibility.isFieldHidden($issue.getProject().getLong("id"), "priority", $issue.getIssueType().getString("name")) == false)
+			#displayPriorityNoLink($issue)
+		#else
+			&nbsp;
+		#end
+	</td>
+	
+    #if ($groupByField)
+	    <td nowrap width="1%">
+	        #set ($field = $textUtil.getFieldValue($groupByField, $issue, $outlookDate))
+            #if ($field  == "NoValueForFieldOnIssue")
+                $i18n.getText("report.timesheet.groupbyfield.novalue")
+            #elseif ($field == "FieldTypeValueNotApplicableForGrouping")
+                $i18n.getText("report.timesheet.groupbyfield.couldnotreadvalue")
+            #else
+                $textutils.plainTextToHtml($field)
+            #end
+    	</td>
+    #end
+
+    #set ($timespents = $weekWorkLog.get($issue))
+	
+	#set ($totalWorked = 0)
+	#foreach ($weekDay in $weekDays)
+		#set ($dayOfMonth = $weekDay.weekDayDate.time)
+
+		#if ($timespents)
+			#if ($timespents.get($weekDay.getWeekDayDate()))
+				#set ($timeSpent = $timespents.get($weekDay.getWeekDayDate()).intValue())
+				#set ($totalWorked = $totalWorked + $timeSpent)
+			#else
+				#set ($timeSpent = 0)
+			#end
+		#else
+			#set ($timeSpent = 0)
+		#end
+		
+        <td align="center" class="$weekDay.getWeekDayCSS()" width=1%>
+            #if ($timeSpent != 0)
+                $textUtil.getPrettyHours($timeSpent)
+            #end
+        </td>
+	#end
+	<td align="center" width="1%"><b>$textUtil.getPrettyHours($totalWorked)</b></td>

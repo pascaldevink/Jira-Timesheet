@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.atlassian.jira.plugins</groupId>
+        <artifactId>jira-plugin-base</artifactId>
+        <version>5</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fdu.jira.plugin</groupId>
+    <artifactId>atlassian-jira-plugin-timesheet</artifactId>
+    <name>atlassian-jira-plugin-timesheet</name>
+    <version>1.9</version>
+
+    <properties>
+        <atlassian.plugin.key>com.osf.jira.plugins.jira-workplan-report-plugin</atlassian.plugin.key>
+        <jira.version>4.0.0-rc1</jira.version>
+    </properties>
+
+    <build>
+        <!--
+              The following plugin definitions are required to invoke functions that
+              build run-time environment for running integration tests against JIRA
+          -->
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.6</version>
+            </plugin>
+        </plugins>
+        <sourceDirectory>src/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/etc</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>atlassian-plugin.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/etc</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <excludes>
+                    <exclude>atlassian-plugin.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>plugin-debug</id>
+            <build>
+                <defaultGoal>verify</defaultGoal>
+            </build>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <http.port>8080</http.port>
+                <rmi.port>9001</rmi.port>
+                <maven.test.skip>true</maven.test.skip>
+                <cargo.wait>true</cargo.wait>
+                <jvmargs>-Xms128m -Xmx256m -Xdebug -Xnoagent -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=n</jvmargs>
+                <jira.config.directory>plugin-debug</jira.config.directory>
+                <unpack.jira.config.overwrite>false</unpack.jira.config.overwrite>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>osuser</groupId>
+            <artifactId>osuser</artifactId>
+            <version>1.0-dev-log4j-1.4jdk-7Dec05</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>atlassian-contrib</id>
+            <name>Atlassian repository of contributed code</name>
+            <url>dav:https://maven.atlassian.com/contrib</url>
+        </repository>
+        <snapshotRepository>
+            <id>atlassian-contrib-snapshot</id>
+            <name>Atlassian repository of contributed code snapshots</name>
+            <url>dav:https://maven.atlassian.com/contrib-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

@@ -1,0 +1,28 @@
+<table class=tableBorder border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<table border="0" cellpadding="3" cellspacing="1" width="100%">
+    <tr class=rowHeader>
+        <td class="colHeaderLink" colspan="4" width="100%">
+        $i18n.getText("report.pivot.issue")
+        </td>
+        #foreach ($user in $workedUsers.keySet())
+        	#set ($username = $user.getFullName())
+            <td align="center" width="1%"><a href="$req.contextPath/secure/ConfigureReport.jspa?targetUser=$user.getName()&startDate=$startDate&endDate=$endDate&reportKey=com.fdu.jira.plugin.timesheet:report">$username</a></td>
+        #end
+        <td align="center" width="1%"><b>$i18n.getText("report.pivot.issue.total")</b></td>
+    </tr>
+    <tr class="rowAlternate">
+        <td align="center" colspan="4"><b>$i18n.getText("report.pivot.user.total")</b></td>
+        #set ($total = 0)
+        #foreach ($user in $workedUsers.keySet())
+            <td align="center"><b>$textUtil.getPrettyHours($workedUsers.get($user))</b></td>
+            #set ($total = $total + $workedUsers.get($user).intValue())
+        #end
+        <td align="center"><b>$textUtil.getPrettyHours($total)</b></td>
+    </tr>
+    #foreach ($issue in $workedIssues.keySet())
+		#set($issueWorkLog = $workedIssues.get($issue))
+        #parse('templates/pivotreport/pivot-entry.vm')
+    #end
+</table>
+</td></tr></table>
+    

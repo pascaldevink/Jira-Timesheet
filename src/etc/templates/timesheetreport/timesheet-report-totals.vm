@@ -1,0 +1,24 @@
+            <tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+            #if ($groupByField && $showUsers)
+                <td align="center" colspan="7">
+            #elseif ($groupByField || $showUsers)
+                <td align="center" colspan="6">
+            #else
+                <td align="center" colspan="5">
+            #end
+            <b>$i18n.getText("report.timesheet.total")</b></td>
+            #set ($totalWorked = 0)
+            #foreach ($weekDay in $weekDays)
+                #set ($dayOfMonth = $weekDay.weekDayDate.time)
+                <td align="center" class="$weekDay.getWeekDayCSS()">
+                #if ($weekTotalTimeSpents.get($dayOfMonth))
+                    #set ($timeSpent = $weekTotalTimeSpents.get($dayOfMonth).intValue())
+                    <b>$textUtil.getPrettyHours($timeSpent)</b>
+                    #set ($totalWorked = $totalWorked + $timeSpent)
+                #else
+                    &nbsp;
+                #end
+	            </td>
+                #end
+        	<td align="center"><b>$textUtil.getPrettyHours($totalWorked)</b></td>
+            </tr>

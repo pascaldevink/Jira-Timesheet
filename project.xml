@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<project>
+    <pomVersion>3</pomVersion>
+    <extend>parent-project.xml</extend>
+    <id>atlassian-jira-plugin-timesheet</id>
+    <name>JIRA Report Plugin</name>
+    <currentVersion>1.5</currentVersion>
+    <organization>
+        <name>Flextronics Design Ukraine</name>
+        <url>http://ua.flextronics.com/</url>
+    </organization>
+    <package>com.fdu.jira.plugin</package>
+    <description>Plugin with two reports and one portlet.</description>
+
+    <developers>
+        <developer>
+            <name>Andrew Zhdanov</name>
+            <id>avalez</id>
+            <email>Andriy.Zhdanov@ua.flextronics.com</email>
+            <organization>FDU</organization>
+            <roles>
+                <role>TL</role>
+            </roles>
+        </developer>
+    </developers>
+
+</project>

@@ -1,0 +1,160 @@
+<atlassian-plugin key="com.fdu.jira.plugin.timesheet" name="JIRA TimeSheet Report and Portlet">
+    <plugin-info>
+        <description>Timesheet Report Plugin</description>
+        <version>1.9</version>
+        <application-version min="4.0" max="4.0"/>
+        <vendor name="Andriy Zhdanov" url="azhdanov@gmail.com"/>
+    </plugin-info>
+
+    <!-- Timesheet Report - displays a summary of worked time -->
+    <report key="report" name="Project timesheet Report" class="com.fdu.jira.plugin.report.timesheet.TimeSheet">
+        <description key="report.timesheet.description">i18n description</description>
+        <label key="report.timesheet.label" />
+
+        <resource type="velocity" name="view" location="templates/timesheetreport/timesheet-report.vm" />
+        <resource type="velocity" name="excel" location="templates/timesheetreport/timesheet-report-excel.vm" />
+        <resource type="i18n" name="i18n" location="com.fdu.jira.plugin.report.timesheet.timesheet_report" />
+
+        <properties>
+            <property>
+                <key>startDate</key>
+                <name>report.timesheet.startdate</name>
+                <description>report.timesheet.startdate.description</description>
+                <type>date</type>
+            </property>
+            <property>
+                <key>endDate</key>
+                <name>report.timesheet.enddate</name>
+                <description>report.timesheet.enddate.description</description>
+                <type>date</type>
+            </property>
+            <property>
+                <key>targetUser</key>
+                <name>report.timesheet.targetuser</name>
+                <description>report.timesheet.targetuser.description</description>
+                <type>user</type>
+            </property>
+            <property>
+                <key>targetGroup</key>
+                <name>report.timesheet.targetgroup</name>
+                <description>report.timesheet.targetgroup.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.timesheet.GroupValuesGenerator"/>
+            </property>
+            <property>
+                <key>priority</key>
+                <name>report.timesheet.priority.label</name>
+                <description>report.timesheet.priority.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.timesheet.PrioritiesValuesGenerator"/>
+                <default></default>
+            </property>
+            <property>
+                <key>project</key>
+                <name>report.timesheet.project.label</name>
+                <description>report.timesheet.project.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.timesheet.ProjectValuesGenerator"/>
+                <default></default>
+            </property>
+            <property>
+                <key>weekends</key>
+                <name>report.timesheet.weekends.label</name>
+                <description>report.timesheet.weekends.description</description>
+                <type>checkbox</type>
+                <default>true</default>
+            </property>
+            <property>
+                <key>showUsers</key>
+                <name>report.timesheet.showusers.label</name>
+                <description>report.timesheet.showusers.description</description>
+                <type>checkbox</type>
+                <default>true</default>
+            </property>
+            <property>
+                <key>groupByField</key>
+                <name>report.timesheet.groupbyfield.label</name>
+                <description>report.timesheet.groupbyfield.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.timesheet.GroupByFieldValuesGenerator" />
+                <default>true</default>
+             </property>
+        </properties>
+    </report>
+    
+    <!-- TimeSheet portlet - displays a summary of worked time as graph -->
+    <portlet key="portlet" name="Timesheet" class="com.fdu.jira.plugin.portlet.timesheet.TimeSheet">
+        <description key="portlet.timesheet.description">i18n description</description>
+        <resource type="velocity" name="view" location="templates/timesheetportlet/timesheet-portlet.vm" />
+        <resource type="i18n" name="i18n" location="com.fdu.jira.plugin.portlet.timesheet.timesheet_portlet" />
+        <label key="portlet.timesheet.name" />
+        <thumbnail>portlets/dashboard/thumbnails/timesheet.png</thumbnail>
+        <objectdescriptor key="portlet.timesheet.display.name" />
+		<properties>
+			<property>
+				<key>numOfWeeks</key>
+				<name>portlet.timesheet.numOfWeeks.label</name>
+				<description>portlet.timesheet.numOfWeeks.description</description>
+				<type>long</type>
+				<default>1</default>
+			</property>
+			<property>
+				<key>reportingDay</key>
+				<name>portlet.timesheet.reportingDay.label</name>
+				<description>portlet.timesheet.reportingDay.description</description>
+				<type>select</type>
+				<default>2</default> <!-- Monday -->
+				<values class="com.fdu.jira.util.WeekDaysValuesGenerator"/>
+			</property>
+            <property>
+                <key>targetUser</key>
+                <name>portlet.timesheet.targetuser.label</name>
+                <description>portlet.timesheet.targetuser.description</description>
+                <type>select</type>
+                <default></default>
+				<values class="com.fdu.jira.plugin.portlet.timesheet.UsersValuesGenerator"/>
+            </property>
+		</properties>
+    </portlet>
+
+    <!-- Project Pivot Report - displays a time spent by users per issue -->
+    <report key="projectpivot" name="Project Pivot Report" class="com.fdu.jira.plugin.report.pivot.Pivot">
+        <description key="report.pivot.description">i18n description</description>
+        <label key="report.pivot.label" />
+
+        <resource type="velocity" name="view" location="templates/pivotreport/pivot-report.vm" />
+        <resource type="velocity" name="excel" location="templates/pivotreport/pivot-report-excel.vm" />
+        <resource type="i18n" name="i18n" location="com.fdu.jira.plugin.report.pivot.pivot_report" />
+
+        <properties>
+            <property>
+                <key>projectid</key>
+                <name>report.pivot.projectid.name</name>
+                <description>report.pivot.projectid.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.timesheet.ProjectValuesGenerator"/>
+                <default></default>
+            </property>
+            <property>
+                <key>filterid</key>
+                <name>report.pivot.filterid.name</name>
+                <description>report.pivot.filterid.description</description>
+                <type>select</type>
+                <values class="com.fdu.jira.plugin.report.pivot.OptionalSearchRequestValuesGenerator"/>
+                <default></default>
+            </property>
+            <property>
+                <key>startDate</key>
+                <name>report.pivot.startdate</name>
+                <description>report.pivot.startdate.description</description>
+                <type>date</type>
+            </property>
+            <property>
+                <key>endDate</key>
+                <name>report.pivot.enddate</name>
+                <description>report.pivot.enddate.description</description>
+                <type>date</type>
+            </property>
+        </properties>
+    </report>
+</atlassian-plugin>

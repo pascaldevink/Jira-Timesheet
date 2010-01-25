@@ -1,0 +1,80 @@
+## Style Declaration
+<style type="text/css">
+	.businessDay {
+	}
+	.nonBusinessDay {
+		background-color: #ffeedd;
+	}
+	.nonWorkedDay {
+		color: #bbb;
+		}
+	.workedDay {
+	}
+	.toDay {
+		background-color: #ccffcc;
+	}
+</style>
+<p>
+<table class=tableBorder border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+			<table border="0" cellpadding="3" cellspacing="1" width="100%">
+				<tr class=rowHeader>
+					<td class="colHeaderLink">
+						$i18n.getText("report.timesheet.project")
+					</td>
+					<td class="colHeaderLink" colspan="4">
+						$i18n.getText("report.timesheet.issue")
+					</td>
+					#if ($groupByField)
+						<td>
+							$textutils.plainTextToHtml($textUtil.getFieldName($groupByField))
+						</td>
+					#end
+					#if ($showUsers)
+						<td class="colHeaderLink">
+							$i18n.getText("report.timesheet.comment")
+						</td>
+					#end
+					#foreach ($weekDay in $weekDays)
+						<td align="center" width="1%" class="$weekDay.getWeekDayCSS()" title="$outlookDate.formatDMY($weekDay.getWeekDayDate())">$i18n.getText($weekDay.getWeekDayKey())<br/>$outlookDate.formatDMY($weekDay.getWeekDayDate())</td>
+					#end
+					<td align="center"><b>$i18n.getText("report.timesheet.total")</b></td>
+				</tr>
+				#if ($weekWorkLog)
+					#set ($count = 0)
+					#parse('templates/timesheetreport/timesheet-report-project-totals.vm')
+					#parse('templates/timesheetreport/timesheet-report-totals.vm')
+					#parse('templates/timesheetreport/timesheet-report-groupbyfield-totals.vm')
+					
+					#set ($count = 0)
+					#if ($showUsers)
+						#foreach ($user in $weekWorkLog.keySet())
+							#set($userWorkLog = $weekWorkLog.get($user))
+							<tr>
+								<td colspan="6">$user.fullName</td>
+							</tr>
+							#set ($outerIndex = $velocityCount)
+							#foreach ($issue in $userWorkLog.keySet())
+								#set($issueWorkLog = $userWorkLog.get($issue))
+								#set($entries = $issueWorkLog.size())
+								#parse('templates/timesheetreport/timesheet-entry.vm')
+							#end
+							#set ($velocityCount = $outerIndex)
+						#end
+					#else
+			            <tr>
+                            <td colspan="6">&nbsp;</td>
+                        </tr>
+                        #foreach ($issue in $weekWorkLog.keySet())
+                            #parse('templates/timesheetreport/timesheet-entry-short.vm')
+                        #end
+                    #end
+                    #parse('templates/timesheetreport/timesheet-report-totals.vm')
+                    #else
+						<tr bgcolor="#FFFFFF">
+							<td width="100%"  colspan="11">
+								$i18n.getText("report.timesheet.noentries")
+							</td>
+						</tr>
+                    #end
+			</table>
+</td></tr></table>

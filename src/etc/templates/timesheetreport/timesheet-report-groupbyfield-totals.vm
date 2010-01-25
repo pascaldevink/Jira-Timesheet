@@ -1,0 +1,52 @@
+#if ($groupByField)
+
+    <tr>
+        <td colspan="7">
+            &nbsp;
+        </td>
+    </tr>
+
+    #foreach ($project in $projectGroupedTimeSpents.keys())
+    #set ($fieldTimeMap = $projectGroupedTimeSpents.get($project))
+    #foreach ($field in $fieldTimeMap.keys())
+        <tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+            <td align="center">
+                    <a href="$req.contextPath/browse/$project.getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($project.getName())</a>
+            </td>
+            <td colspan="4">
+                &nbsp;
+            </td>
+            
+            <td><b>
+              #if ($field  == "NoValueForFieldOnIssue")
+                $i18n.getText("report.timesheet.groupbyfield.novalue")
+              #elseif ($field == "FieldTypeValueNotApplicableForGrouping")
+                $i18n.getText("report.timesheet.groupbyfield.couldnotreadvalue")
+              #else
+                $textutils.plainTextToHtml($field)
+              #end
+            </b></td>
+            #if ($showUsers)
+                <td>&nbsp;</td>
+            #end
+            #set ($totalWorked = 0)
+            #foreach ($weekDay in $weekDays)
+                #set ($projectWorkLog = $fieldTimeMap.get($field))
+                #if ($projectWorkLog.get($weekDay.getWeekDayDate()))                    
+                    #set ($timeSpent = $projectWorkLog.get($weekDay.getWeekDayDate()).intValue())
+                #else
+                    #set ($timeSpent = 0)
+                #end
+                #set ($totalWorked = $totalWorked + $timeSpent)
+                <td align="center" class="$weekDay.getWeekDayCSS()">
+                    #if($timeSpent != 0)
+                        <b>$textUtil.getPrettyHours($timeSpent)</b>
+                    #end
+                </td>                   
+            #end
+            <td align="center"><b>$textUtil.getPrettyHours($totalWorked)</b></td>
+        </tr>
+    #end
+    #end
+    #parse('templates/timesheetreport/timesheet-report-totals.vm')
+#end

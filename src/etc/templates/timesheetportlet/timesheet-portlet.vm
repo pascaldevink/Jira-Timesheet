@@ -1,0 +1,58 @@
+#if ($loggedin)
+	## Style Declaration
+	<style type="text/css">
+		.businessDay {
+		}
+		.nonBusinessDay {
+			background-color: #ffeedd;
+		}
+		.nonWorkedDay {
+			color: #bbb;
+		}
+		.workedDay {
+		}
+		.toDay {
+			background-color: #ccffcc;
+		}
+	</style>
+	
+	<p>
+		<table class=tableBorder border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+					<table border="0" cellpadding="3" cellspacing="1" width="100%">
+						<tr class=rowHeader>
+							<td class="colHeaderLink" colspan="4">
+								<b>$i18n.getText("portlet.timesheet.name")</b>
+								#if ($targetUser)
+									for $targetUser.fullName
+								#end
+								&nbsp;<font size="1">(<a href="$req.contextPath/secure/ConfigureReport.jspa?startDate=$dpc.getString($startDate)&endDate=$dpc.getString($endDate)#if ($targetUser)&targetUser=$targetUser.name#end&reportKey=com.fdu.jira.plugin.timesheet:report&weekends=true&showUsers=true">$i18n.getText("portlet.timesheet.details")</a><font>)
+							</td>
+							#foreach ($weekDay in $weekDays)
+								##<td align="center" width="1%">$i18n.getText($weekDay)</td>
+								#set ($theDay = $weekDay.getWeekDayDate().getDate())
+								#set ($theMonth = $weekDay.getWeekDayDate().getMonth() + 1)
+								<td align="center" width="1%" class="$weekDay.getWeekDayCSS()" title="$outlookDate.formatDMY($weekDay.getWeekDayDate())">$i18n.getText($weekDay.getWeekDayKey())<br/>$theDay/$theMonth</td>
+							#end		
+						</tr>
+						#set ($worklogKeys = $weekWorkLog.keySet())
+						#foreach ($issue in $worklogKeys)
+							#parse('templates/timesheetportlet/timesheet-entry.vm')
+						#end
+						<tr class="rowNormal">
+							<td align="center" colspan="4">$i18n.getText("portlet.timesheet.total")</td>
+							#foreach ($weekDay in $weekDays)
+								#set ($dayOfMonth = $weekDay.weekDayDate.time)
+								#if ($weekTotalTimeSpents.get($dayOfMonth)) 
+									#set ($timeSpent = $weekTotalTimeSpents.get($dayOfMonth))
+									#set ($cellCSS = "$weekDay.weekDayCSS workedDay")
+								#else
+									#set ($timeSpent = 0)
+									#set ($cellCSS = "$weekDay.weekDayCSS nonWorkedDay")
+								#end
+								<td align="center" class="$cellCSS" ><b>$textUtil.getPrettyHours($timeSpent)</b></td>				
+							#end
+						</tr>
+					</table>
+</td></tr></table>
+	</p>
+#end

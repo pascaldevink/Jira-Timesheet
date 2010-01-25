@@ -1,0 +1,45 @@
+ <tr #if ($velocityCount % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+	<td nowrap width=1%>
+		#displayType($issue)
+	</td>
+
+	<td nowrap width=1%><font size=1><a href="$req.contextPath/browse/$issue.key">$issue.key</a></font></td>
+	<td width=100%>
+		#if ($issue.isSubTask())
+			<span class="smallgrey"><a href="$req.contextPath/browse/$issue.getParent().getString('key')" style="text-decoration: none; " title="$issue.getParent().getString('summary')">$issue.getParent().getString('key')</a></span><br>
+			<img src="$req.contextPath/images/icons/link_out_bot.gif" width=16 height=16 border=0 align=absmiddle>
+		#end
+		<a href="$req.contextPath/browse/$issue.getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($issue.getSummary())</a>
+	</td>
+
+	<td nowrap width="1%">
+		#if ($fieldVisibility.isFieldHidden($issue.getProject().getLong("id"), "priority", $issue.getIssueType().getString("name")) == false)
+			#displayPriorityNoLink($issue)
+		#else
+			&nbsp;
+		#end
+	</td>
+	
+	#set ($timespents = $weekWorkLog.get($issue))
+	
+	#foreach ($weekDay in $weekDays)
+		#set ($dayOfMonth = $weekDay.weekDayDate.time)
+
+		#if ($timespents)
+			#if ($timespents.get($weekDay.getWeekDayDate()))
+				#set ($timeSpent = $timespents.get($weekDay.getWeekDayDate()))
+				#set ($cellCSS = "$weekDay.weekDayCSS workedDay")
+			#else
+				#set ($timeSpent = 0)
+				#if ($weekTotalTimeSpents.get($dayOfMonth)) 
+					#set ($cellCSS = "$weekDay.weekDayCSS workedDay")
+				#else
+					#set ($cellCSS = "$weekDay.weekDayCSS nonWorkedDay")
+				#end
+			#end
+		#else
+			#set ($timeSpent = 0)
+		#end
+		
+		<td align="center" class="$cellCSS">$textUtil.getPrettyHours($timeSpent)</td>
+	#end

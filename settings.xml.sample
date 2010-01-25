@@ -1,0 +1,16 @@
+<settings>
+
+  <!-- run with mvn -P jira.profile -->
+
+  <profile>
+    <id>jira.profile</id>
+    <repositories>
+      <repository>
+        <id>jira.development.kit</id>
+        <url>file:C:/Projects/Jira/jira-development-kit-3.6-1/lib</url>
+        <layout>legacy</layout>
+      </repository>
+    </repositories>
+  </profile>
+
+</settings>

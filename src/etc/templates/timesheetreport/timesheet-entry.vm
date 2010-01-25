@@ -1,0 +1,75 @@
+<tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end >
+
+	<td rowspan="$entries">
+		<a href="$req.contextPath/browse/$issue.getProjectObject().getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($issue.getProjectObject().getName())</a>
+	</td>
+
+	<td nowrap width=1% rowspan="$entries">
+		#displayType($issue)
+	</td>
+
+	<td nowrap width=1% rowspan="$entries"><font size=1><a href="$req.contextPath/browse/$issue.key">$issue.key</a></font></td>
+
+	<td width=50% rowspan="$entries">
+		#if ($issue.isSubTask())
+			<span class="smallgrey"><a href="$req.contextPath/browse/$issue.getParent().getString('key')" style="text-decoration: none; " title="$issue.getParent().getString('summary')">$issue.getParent().getString('key')</a></span><br>
+			<img src="$req.contextPath/images/icons/link_out_bot.gif" width=16 height=16 border=0 align=absmiddle>
+		#end
+		<a href="$req.contextPath/browse/$issue.getKey()" style="text-decoration: none; ">$textutils.plainTextToHtml($issue.getSummary())</a>
+	</td>
+	
+	<td nowrap width="1%" rowspan="$entries">
+		#if ($fieldVisibility.isFieldHidden($issue.getProject().getLong("id"), "priority", $issue.getIssueType().getString("name")) == false)
+			#displayPriorityNoLink($issue)
+		#else
+			&nbsp;
+		#end
+	</td>
+
+    #if ($groupByField)
+	    <td nowrap width="1%" rowspan="$entries">
+	        #set ($field = $textUtil.getFieldValue($groupByField, $issue, $outlookDate))
+            #if ($field  == "NoValueForFieldOnIssue")
+                $i18n.getText("report.timesheet.groupbyfield.novalue")
+            #elseif ($field == "FieldTypeValueNotApplicableForGrouping")
+                $i18n.getText("report.timesheet.groupbyfield.couldnotreadvalue")
+            #else
+                $textutils.plainTextToHtml($field)
+            #end
+    	</td>
+    #end
+
+	#set ($outerIndex = $velocityCount)
+	#set ($totalWorked = 0)
+	#set ($issueTotalTimeSpents = $userTotalTimeSpents.get($user))
+	#set ($totalWorked = $issueTotalTimeSpents.get($issue).intValue())
+	
+	#foreach ($worklog in $issueWorkLog.keys())
+		#if ($velocityCount > 1) <tr #if ($count % 2 == 0) class="rowNormal" #else class="rowAlternate" #end > #end
+		<td width=50%>#makelinkedhtml($worklog.getComment())</td>
+		#set ($outerIndex2 = $velocityCount)
+		#foreach ($weekDay in $weekDays)
+			#set ($timespent = 0)
+			
+			#if ($weekDay.getWeekDayDate().getDate() == $worklog.getStartDate().getDate())
+				#if ($weekDay.getWeekDayDate().getMonth() == $worklog.getStartDate().getMonth())
+					#if ($weekDay.getWeekDayDate().getYear() == $worklog.getStartDate().getYear())
+						#set ($timespent = $issueWorkLog.get($worklog).intValue())
+					#end
+				#end
+			#end
+			
+			<td align="center" class="$weekDay.getWeekDayCSS()" width=1%>
+				#if ($timespent != 0) 
+					$textUtil.getPrettyHours($timespent)
+				#end
+			</td>
+		#end
+		#if ($velocityCount == 1) <td align="center" width="1%" rowspan="$entries"><b>$textUtil.getPrettyHours($totalWorked)</b></td> #end
+		#set ($velocityCount = $outerIndex2)
+		#set ($count = $count + 1)
+		</tr> 
+	#end
+	
+	#set ($velocityCount = $outerIndex)
+

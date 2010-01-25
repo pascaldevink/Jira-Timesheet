@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4" relativePaths="true" type="JAVA_MODULE">
+  <component name="ModuleRootManager" />
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/func_test">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/func_test" isTestSource="true" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="java version &quot;1.4.2_09&quot;" />
+    <orderEntry type="module-library" exported="">
+      <library name="Functional Test Resources">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/httpunit/jars/httpunit-1.5.4-patched.jar!/" />
+          <root url="jar:///Users/nolen/.maven/repository/exml/jars/exml-7.1.jar!/" />
+          <root url="jar:///Users/nolen/.maven/repository/jwebunit/jars/jwebunit-1.2.jar!/" />
+          <root url="jar:///Users/nolen/.maven/repository/xmlunit/jars/xmlunit-1.0.jar!/" />
+          <root url="jar:///Users/nolen/.maven/repository/nekohtml/jars/nekohtml-0.8.1.jar!/" />
+          <root url="jar:///Users/nolen/.maven/repository/rhino/jars/js-1.5R4-RC3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../src/etc/test/functest" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="atlassian-jira-plugin-report-timesheet" exported="" />
+    <orderEntryProperties />
+  </component>
+</module>
+

@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4" relativePaths="false" type="JAVA_MODULE">
+  <component name="ModuleRootManager" />
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/java" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="java version &quot;1.4.2&quot;" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-jira">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-jira/jars/atlassian-jira-3.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/atlassian-jira-enterprise-3.4.2-source/jira/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-core">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-core/jars/atlassian-core-2.4.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/atlassian-jira-enterprise-3.4.2-source/atlassian-core/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-bandana">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-bandana/jars/atlassian-bandana-0.1.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/bandana/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-ofbiz">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-ofbiz/jars/atlassian-ofbiz-0.3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/atlassian-jira-enterprise-3.4.2-source/atlassian-ofbiz/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-profiling">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-profiling/jars/atlassian-profiling-1.1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/atlassian-profiling/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-configurableobjects">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-configurableobjects/jars/atlassian-configurableobjects-0.4.18.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/configurableobjects/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-mail">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-mail/jars/atlassian-mail-1.3.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/mail/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-scheduler">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-scheduler/jars/atlassian-scheduler-0.7.15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/scheduler/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-velocity">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-velocity/jars/atlassian-velocity-0.3.14.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/atlassian-velocity/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-johnson">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-johnson/jars/atlassian-johnson-0.5.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/johnson/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-plugins">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-plugins/jars/atlassian-plugins-0.3.13.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/plugins/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="seraph">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/seraph/jars/seraph-0.7.15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/seraph/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-extras">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-extras/jars/atlassian-extras-0.7.13.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-tagutil">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-tagutil/jars/atlassian-tagutil-0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-renderer">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-renderer/jars/atlassian-renderer-2005.11.30.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/atlassian-renderer/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="p6spy">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/p6spy/jars/p6spy-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="osworkflow">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/osworkflow/jars/osworkflow-17Aug2004.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="oscore">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/oscore/jars/oscore-2.2.6-dev-9Nov05.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="osuser">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/osuser/jars/osuser-1.0-dev-patched-log4j-1.4jdk-11Nov05.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="propertyset">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/propertyset/jars/propertyset-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="sitemesh">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/sitemesh/jars/sitemesh-2.3-dev-25Oct-05.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="webwork">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/webwork/jars/webwork-3Aug05-jiratld.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="webwork-pell">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/webwork/jars/webwork-pell-multipartrequest1.30rc1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-digester">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-digester/jars/commons-digester-1.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-beanutils">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-beanutils/jars/commons-beanutils-1.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-logging">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-logging/jars/commons-logging-1.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-collections">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-collections/jars/commons-collections-3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-lang">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-lang/jars/commons-lang-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-configuration">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-configuration/jars/commons-configuration-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="log4j">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/log4j/jars/log4j-1.2.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="lucene">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/lucene/jars/lucene-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="oro">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/oro/jars/oro-2.0.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jregex">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jregex/jars/jregex-1.2_01.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="velocity">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/velocity/jars/velocity-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="dwr">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/dwr/jars/dwr-1.0-rc3-atlassian.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="alt">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/alt/jars/alt-0.07-jdk1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="alt-j2ee">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/alt/jars/alt-0.07-j1.3-j2ee1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="junit">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/junit/jars/junit-3.8.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="mockobjects">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/mockobjects/jars/mockobjects-DEV.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="easymock">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/easymock/jars/easymock-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="cglib-full">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/cglib/jars/cglib-full-2.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="easymockclassextension">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/easymock/jars/easymockclassextension-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="mockobjects-j2ee">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/mockobjects/jars/mockobjects-0.07-j1.3-j2ee1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="mockobjects-jdk">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/mockobjects/jars/mockobjects-0.07-jdk1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="activation">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/activation/jars/activation-1.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="javamail">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/javamail/jars/javamail-1.3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="servletapi">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/servletapi/jars/servletapi-2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="glue">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/glue/jars/glue-5.0b2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="bsf">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/bsf/jars/bsf-2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="bsh">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/bsh/jars/bsh-1.2b7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ofbcore-share">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ofbcore/jars/ofbcore-share-2.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ofbcore-entity">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ofbcore/jars/ofbcore-entity-2.1.1-atlassian-25Nov05.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ofbcore-service">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ofbcore/jars/ofbcore-service-2.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ofbcore-extutil">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ofbcore/jars/ofbcore-extutil-2.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="csv">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/csv/jars/csv-20.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ofbcore-xerces">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ofbcore/jars/ofbcore-xerces-serialize.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="quartz">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/quartz/jars/quartz-1.4.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="picocontainer">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/picocontainer/jars/picocontainer-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jzlib">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jzlib/jars/jzlib-1.0.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jsch">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jsch/jars/jsch-0.1.23.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="javacvs">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/javacvs/jars/javacvs-20050531-patched.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="statcvs">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/statcvs/jars/statcvs-20050524-patched.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-dbcp">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-dbcp/jars/commons-dbcp-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-pool">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-pool/jars/commons-pool-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="hsqldb">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/hsqldb/jars/hsqldb-1.7.1-patched.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jndi">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jndi/jars/jndi-1.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jta">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jta/jars/jta-1.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="ots-jts">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/ots-jts/jars/ots-jts_1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jotm">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jotm/jars/jotm-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jotm-jrmp_stubs">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jotm/jars/jotm-jrmp_stubs-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jotm-iiop_stubs">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jotm/jars/jotm-iiop_stubs-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jotm-jonas_timer">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jotm/jars/jonas_timer-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jotm-objectweb-datasource">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jotm/jars/objectweb-datasource-1.4.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="carol">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/carol/jars/carol-1.5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="carol-properties">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/carol/jars/carol-properties.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xapool">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xapool/jars/xapool-1.3.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xml-apis">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xml-apis/jars/xml-apis-1.0.b2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="saxon-noaelfred">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/saxon/jars/saxon-noaelfred-6.5.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-20030310.073407.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-junit">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-junit-20030211.141731.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-util">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-util-20030211.141939.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-email">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-email-20030211.144034.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-log">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-log-20030211.142821.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-http">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-http-20030211.143043.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-soap">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-soap-20030211.142401.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jelly-tags-sql">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jelly/jars/commons-jelly-tags-sql-20030211.144816.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-jexl">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-jexl/jars/commons-jexl-1.0-beta-2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="dom4j">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/dom4j/jars/dom4j-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="atlassian-trackback">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/atlassian-trackback/jars/atlassian-trackback-0.8.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Volumes/HardDrive/atlassian/plugins/trackback/src/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="concurrent">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/concurrent/jars/concurrent-1.3.4-withdebug.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-httpclient">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-httpclient/jars/commons-httpclient-3.0-rc3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-codec">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-codec/jars/commons-codec-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xmlrpc">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xmlrpc/jars/xmlrpc-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="axis">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/axis/jars/axis-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="axis-jaxrpc">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/axis/jars/axis-jaxrpc-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="axis-saaj">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/axis/jars/axis-saaj-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="axis-wsdl4j">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/axis/jars/axis-wsdl4j-1.5.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-discovery">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/commons-discovery/jars/commons-discovery-0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xercesImpl">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xerces/jars/xercesImpl-2.6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xmlsec">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xml-security/jars/xmlsec-1.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="datafile">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/datafile/jars/datafile-1.3.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xpp3">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xpp3/jars/xpp3-1.1.3.4-RC8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xstream">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/xstream/jars/xstream-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jfreechart">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jfreechart/jars/jfreechart-1.0.0-pre2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jfree">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jfree/jars/jcommon-1.0.0-pre2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="urlrewritefilter">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/net.java.dev.urlrewrite/jars/urlrewritefilter-2.3-atlassian-3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="radeox">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/radeox/jars/radeox-1.0b2-forked-22Apr2004.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jtidy">
+        <CLASSES>
+          <root url="jar:///Users/nolen/.maven/repository/jtidy/jars/jtidy-r8-20050104.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="Build Resources">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/src/etc" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Test Resources">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/test/etc" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntryProperties />
+  </component>
+</module>
+
