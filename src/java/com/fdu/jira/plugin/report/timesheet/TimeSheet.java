@@ -76,6 +76,7 @@ public class TimeSheet extends AbstractReport {
     private Map weekTotalTimeSpents = new Hashtable();
     private Map userTotalTimeSpents = new Hashtable();
     private Map projectTimeSpents = new Hashtable();
+    private Map userDayTotal = new Hashtable();
 
     /**
     * <p>Variable that contains the project times grouped by a specific field.</p>
@@ -142,7 +143,7 @@ public class TimeSheet extends AbstractReport {
                 "Worklog",
                 UtilMisc.toList(startExpr, endExpr, userExpr));
         log.info("Query returned : " + worklogs.size() + " worklogs");
-
+        
         for (Iterator worklogsIterator = worklogs.iterator(); worklogsIterator
                 .hasNext();) {
             GenericValue genericWorklog = (GenericValue) worklogsIterator
@@ -189,7 +190,7 @@ public class TimeSheet extends AbstractReport {
             Long dateCreatedLong  = new Long(cal.getTimeInMillis());
 
             long spent;
-
+            
             if (!permissionManager.hasPermission(Permissions.BROWSE, issue,
                     remoteUser)) {
                 continue; // exclude issues that users can't (shouldn't be
@@ -281,7 +282,34 @@ public class TimeSheet extends AbstractReport {
 	                }            	
 	                issueTotalTimeSpents.put(issue, new Long(spent));
             	}
-
+            	
+            	// TODO: Add logic for total worklog per user per day
+            	log.warn("[TS] WorkedUser: " + workedUser);
+            	log.warn("[TS] Issue: " + worklog.getIssue().getKey());
+            	log.warn("[TS] Time spent: " + worklog.getTimeSpent());
+            	log.warn("[TS] Day date: " + dateOfTheDay);
+            	
+            	Map userWorkDayLog = (Map) userDayTotal.get(workedUser);
+            	
+            	Integer t;
+            	
+            	if (userWorkDayLog == null) {
+            		userWorkDayLog = new HashMap();
+            		t = Integer.valueOf(worklog.getTimeSpent().intValue());
+            	} else {
+            		Integer timeAlreadySpent = (Integer) userWorkDayLog.get(dateOfTheDay);
+            		
+            		if (timeAlreadySpent == null) {
+            			t = Integer.valueOf(worklog.getTimeSpent().intValue());
+            		} else {
+            			t = Integer.valueOf(timeAlreadySpent.intValue() + worklog.getTimeSpent().intValue());
+            		}
+            	}
+            	
+            	userWorkDayLog.put(dateOfTheDay, t);
+            	userDayTotal.put(workedUser, userWorkDayLog);            	
+            	
+            	log.warn(userDayTotal.toString());
 
             }
         }
@@ -447,6 +475,7 @@ public class TimeSheet extends AbstractReport {
             velocityParams.put("userTotalTimeSpents", userTotalTimeSpents);
             velocityParams.put("projectTimeSpents", projectTimeSpents);
             velocityParams.put("projectGroupedTimeSpents", projectGroupedByFieldTimeSpents);
+            velocityParams.put("userDayTotal", userDayTotal);
         }
         velocityParams.put("groupByField", groupByField);
         velocityParams.put("outlookDate", outlookDate);
