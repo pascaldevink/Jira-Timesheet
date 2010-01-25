@@ -77,6 +77,7 @@ public class TimeSheet extends AbstractReport {
     private Map userTotalTimeSpents = new Hashtable();
     private Map projectTimeSpents = new Hashtable();
     private Map userDayTotal = new Hashtable();
+    private Map userTotal = new Hashtable();
 
     /**
     * <p>Variable that contains the project times grouped by a specific field.</p>
@@ -283,34 +284,36 @@ public class TimeSheet extends AbstractReport {
 	                issueTotalTimeSpents.put(issue, new Long(spent));
             	}
             	
-            	// TODO: Add logic for total worklog per user per day
-            	log.warn("[TS] WorkedUser: " + workedUser);
-            	log.warn("[TS] Issue: " + worklog.getIssue().getKey());
-            	log.warn("[TS] Time spent: " + worklog.getTimeSpent());
-            	log.warn("[TS] Day date: " + dateOfTheDay);
-            	
+            	// Logic for total per user per day
             	Map userWorkDayLog = (Map) userDayTotal.get(workedUser);
             	
-            	Integer t;
+            	Integer timeSpent;
             	
             	if (userWorkDayLog == null) {
             		userWorkDayLog = new HashMap();
-            		t = Integer.valueOf(worklog.getTimeSpent().intValue());
+            		timeSpent = Integer.valueOf(worklog.getTimeSpent().intValue());
             	} else {
             		Integer timeAlreadySpent = (Integer) userWorkDayLog.get(dateOfTheDay);
             		
             		if (timeAlreadySpent == null) {
-            			t = Integer.valueOf(worklog.getTimeSpent().intValue());
+            			timeSpent = Integer.valueOf(worklog.getTimeSpent().intValue());
             		} else {
-            			t = Integer.valueOf(timeAlreadySpent.intValue() + worklog.getTimeSpent().intValue());
+            			timeSpent = Integer.valueOf(timeAlreadySpent.intValue() + worklog.getTimeSpent().intValue());
             		}
             	}
-            	
-            	userWorkDayLog.put(dateOfTheDay, t);
-            	userDayTotal.put(workedUser, userWorkDayLog);            	
-            	
-            	log.warn(userDayTotal.toString());
 
+            	userWorkDayLog.put(dateOfTheDay, timeSpent);
+            	userDayTotal.put(workedUser, userWorkDayLog);
+
+            	// Logic for total per user
+            	Integer userTotalWork = (Integer) userTotal.get(workedUser);
+            	
+            	if (userTotalWork == null) {
+            		userTotalWork = new Integer(0);
+            	}
+            	            	
+            	userTotal.put(workedUser, (Integer.valueOf(userTotalWork.intValue() + worklog.getTimeSpent().intValue())));
+            	
             }
         }
         I18nBean i18nBean = new I18nBean(remoteUser);
@@ -476,6 +479,7 @@ public class TimeSheet extends AbstractReport {
             velocityParams.put("projectTimeSpents", projectTimeSpents);
             velocityParams.put("projectGroupedTimeSpents", projectGroupedByFieldTimeSpents);
             velocityParams.put("userDayTotal", userDayTotal);
+            velocityParams.put("userTotal", userTotal);
         }
         velocityParams.put("groupByField", groupByField);
         velocityParams.put("outlookDate", outlookDate);

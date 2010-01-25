@@ -55,11 +55,16 @@
 									#set ($timespent = 0)
 									#set ($timespent = $userDayTotal.get($user).get($weekDay.getWeekDayDate()).intValue())
 									<td class="" width="1%" align="center">
-										#if ($timespent > 0)
-											$textUtil.getPrettyHours($timespent)
+										#if ($timespent != 0)
+											<b>$textUtil.getPrettyHours($timespent)</b>
 										#end
 									</td>
 								#end
+								
+								#set ($timetotal = $userTotal.get($user).intValue())
+								<td width="1%" align="center">
+									<b>$textUtil.getPrettyHours($timetotal)</b>
+								</td>
 							</tr>
 							#set ($outerIndex = $velocityCount)
 							#foreach ($issue in $userWorkLog.keySet())
